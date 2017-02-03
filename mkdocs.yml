@@ -1,0 +1,21 @@
+site_name: PlasmidProfiler
+site_url: http://plasmidprofiler.readthedocs.org
+site_description:  Plasmid Profiler Pipeline, Heatmap display of plasmid content in WGS data.
+repo_url: https://irida.corefacility.ca/analysis-pipelines/
+pages:
+- Home: 'index.md'
+- User:
+    - 'Usage': 'user/usage.md'
+    - 'Input': 'user/input.md'
+    - 'Output': 'user/output.md'
+- Installation:
+    - 'Home': 'install/index.md'
+    - 'Docker': 'install/docker.md'
+    - 'R - CRAN': 'install/r-cran.md'
+    - 'Galaxy': 'install/galaxy.md'
+    - 'Versions': 'install/versions.md'
+- Examples:
+    - 'Listeria monocytogenes': 'examples/listeria-monocytogenes.md'
+- Developer:
+    - 'Upgrading' : 'developer/upgrading.md'
+theme: readthedocs

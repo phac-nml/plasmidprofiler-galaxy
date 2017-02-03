@@ -1,0 +1,5 @@
+libraries:
+    - name: Databases
+      files:
+        - /tmp/repDB3400.fasta
+        - /tmp/plasmidfinder_plusAMR.fasta

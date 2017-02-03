@@ -1,0 +1,996 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "Compare reads to DB of plasmids, identify INC group + AMR presence on the identified sequences. Updated Regex on 20160222", 
+    "format-version": "0.1", 
+    "name": "PP", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Paired End Fastqs"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset collection", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 469
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"collection_type\": \"list:paired\", \"name\": \"Paired End Fastqs\"}", 
+            "tool_version": null, 
+            "type": "data_collection_input", 
+            "uuid": "b3451435-959e-441f-afc5-8b03e985701b", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "33cf99fa-2d94-4ed8-ad4e-a73379d7268c"
+                }
+            ]
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Plasmid Database"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 396, 
+                "top": 582
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Plasmid Database\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "9080659b-ef9e-4669-9923-9a34fda4a2c9", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "044b5b17-d3e1-4a59-b8c0-4073607dd68a"
+                }
+            ]
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Plasmidfinder + APC"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 663, 
+                "top": 664
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Plasmidfinder + APC\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "6cfe9acc-49f8-4ba8-b4fc-db18e7fca4fe", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "a85a21ff-aa65-41bf-9aa3-7a724ece290d"
+                }
+            ]
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "galaxy-toolshed.corefacility.ca/repos/nml/kat_sect/kat_sect/1.2.0", 
+            "id": 3, 
+            "input_connections": {
+                "db": {
+                    "id": 1, 
+                    "output_name": "output"
+                }, 
+                "single_or_paired|fastq_collection": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool KAT Sect", 
+                    "name": "single_or_paired"
+                }, 
+                {
+                    "description": "runtime parameter for tool KAT Sect", 
+                    "name": "db"
+                }
+            ], 
+            "label": null, 
+            "name": "KAT Sect", 
+            "outputs": [
+                {
+                    "name": "reads", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 574.5, 
+                "top": 334
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "galaxy-toolshed.corefacility.ca/repos/nml/kat_sect/kat_sect/1.2.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "4d0c9d2917c8", 
+                "name": "kat_sect", 
+                "owner": "nml", 
+                "tool_shed": "galaxy-toolshed.corefacility.ca"
+            }, 
+            "tool_state": "{\"single_or_paired\": \"{\\\"fastq_collection\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"type\\\": \\\"collection\\\", \\\"__current_case__\\\": 2}\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"db\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "1.2.0", 
+            "type": "tool", 
+            "uuid": "2f576024-6620-4c72-a09c-9727eef64f1a", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "reads", 
+                    "uuid": "017b8caf-fdaf-49ee-b764-3a44b02e99e5"
+                }
+            ]
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "Remove beginning1", 
+            "id": 4, 
+            "input_connections": {
+                "input": {
+                    "id": 3, 
+                    "output_name": "reads"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Remove beginning", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Remove beginning", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 929, 
+                "top": 409
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Remove beginning1", 
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"num_lines\": \"\\\"1\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "7c1451e6-b657-4b0a-a494-f68eb692f23b", 
+            "workflow_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "content_id": "sort1", 
+            "id": 5, 
+            "input_connections": {
+                "input": {
+                    "id": 4, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Sort", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Sort", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1168, 
+                "top": 409
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "sort1", 
+            "tool_state": "{\"__page__\": 0, \"style\": \"\\\"num\\\"\", \"column\": \"\\\"9\\\"\", \"__rerun_remap_job_id__\": null, \"order\": \"\\\"DESC\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"column_set\": \"[]\"}", 
+            "tool_version": "1.0.3", 
+            "type": "tool", 
+            "uuid": "37d608ae-27d7-41c7-b43c-dfcbb7fd8cc5", 
+            "workflow_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "content_id": "Filter1", 
+            "id": 6, 
+            "input_connections": {
+                "input": {
+                    "id": 5, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Filter", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Filter", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1396, 
+                "top": 409
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Filter1", 
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"header_lines\": \"\\\"0\\\"\", \"cond\": \"\\\"c9>80\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "uuid": "28d0e44d-0826-4adc-a283-a9a8b53aae4e", 
+            "workflow_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "content_id": "Cut1", 
+            "id": 7, 
+            "input_connections": {
+                "input": {
+                    "id": 6, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Cut", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1624, 
+                "top": 409
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Cut1", 
+            "tool_state": "{\"columnList\": \"\\\"c1\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"delimiter\": \"\\\"Sp\\\"\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "uuid": "c381bd8f-b21d-46dd-bd81-e6c464569bd9", 
+            "workflow_outputs": []
+        }, 
+        "8": {
+            "annotation": "", 
+            "content_id": "galaxy-toolshed.corefacility.ca/repos/nml/fasta_extract/fa-extract-sequence/1.0.0", 
+            "id": 8, 
+            "input_connections": {
+                "dataset": {
+                    "id": 1, 
+                    "output_name": "output"
+                }, 
+                "file_or_type|list_file": {
+                    "id": 7, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Fasta Extract Sequence", 
+                    "name": "file_or_type"
+                }, 
+                {
+                    "description": "runtime parameter for tool Fasta Extract Sequence", 
+                    "name": "dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Fasta Extract Sequence", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 1852, 
+                "top": 409
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "galaxy-toolshed.corefacility.ca/repos/nml/fasta_extract/fa-extract-sequence/1.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "89a2bd1e564f", 
+                "name": "fasta_extract", 
+                "owner": "nml", 
+                "tool_shed": "galaxy-toolshed.corefacility.ca"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"inverse\": \"\\\"false\\\"\", \"file_or_type\": \"{\\\"list_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0, \\\"select\\\": \\\"list\\\"}\", \"__rerun_remap_job_id__\": null, \"dataset\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"exact\": \"\\\"false\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "f72c0f7c-34d3-4705-a257-96912db4398a", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "cac8ba0e-3a2e-48e3-a6cc-b2fc44ebb479"
+                }
+            ]
+        }, 
+        "9": {
+            "annotation": "", 
+            "content_id": "galaxy-toolshed.corefacility.ca/repos/nml/srst2/srst2/0.3.6", 
+            "id": 9, 
+            "input_connections": {
+                "mlst_or_genedb|databases_0|gene_db": {
+                    "id": 8, 
+                    "output_name": "output"
+                }, 
+                "single_or_paired|fastq_collection": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool SRST2", 
+                    "name": "single_or_paired"
+                }
+            ], 
+            "label": null, 
+            "name": "SRST2", 
+            "outputs": [
+                {
+                    "name": "bam_results", 
+                    "type": "bam"
+                }, 
+                {
+                    "name": "scores", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "pileup", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "alleles", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "txt_results", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "genes_results", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "fullgenes_results", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2119, 
+                "top": 409
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionalleles": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "alleles"
+                }, 
+                "HideDatasetActionbam_results": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "bam_results"
+                }, 
+                "HideDatasetActionfullgenes_results": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "fullgenes_results"
+                }, 
+                "HideDatasetActiongenes_results": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "genes_results"
+                }, 
+                "HideDatasetActionpileup": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "pileup"
+                }, 
+                "HideDatasetActionscores": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "scores"
+                }, 
+                "HideDatasetActiontxt_results": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "txt_results"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "galaxy-toolshed.corefacility.ca/repos/nml/srst2/srst2/0.3.6", 
+            "tool_shed_repository": {
+                "changeset_revision": "8edaac850ad6", 
+                "name": "srst2", 
+                "owner": "nml", 
+                "tool_shed": "galaxy-toolshed.corefacility.ca"
+            }, 
+            "tool_state": "{\"single_or_paired\": \"{\\\"fastq_collection\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"type\\\": \\\"collection\\\", \\\"__current_case__\\\": 2}\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"options\": \"{\\\"min_coverage\\\": \\\"0\\\", \\\"minins\\\": \\\"0\\\", \\\"baseq\\\": \\\"20\\\", \\\"min_edge_depth\\\": \\\"2\\\", \\\"mapq\\\": \\\"1\\\", \\\"prob_err\\\": \\\"0.01\\\", \\\"min_depth\\\": \\\"5\\\", \\\"maxins\\\": \\\"1000\\\", \\\"__current_case__\\\": 0, \\\"stop_after\\\": \\\"1000000\\\", \\\"max_divergence\\\": \\\"0\\\", \\\"select\\\": \\\"advanced\\\"}\", \"mlst_or_genedb\": \"{\\\"gene_max_mismatch\\\": \\\"250\\\", \\\"job_type\\\": \\\"custom_only\\\", \\\"__current_case__\\\": 4, \\\"databases\\\": [{\\\"__index__\\\": 0, \\\"gene_db\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}]}\"}", 
+            "tool_version": "0.3.6", 
+            "type": "tool", 
+            "uuid": "d5931cac-15ed-4009-8209-b594e706123a", 
+            "workflow_outputs": []
+        }, 
+        "10": {
+            "annotation": "", 
+            "content_id": "galaxy-toolshed.corefacility.ca/repos/nml/bundle_collections/bundle_collection/1.2", 
+            "id": 10, 
+            "input_connections": {
+                "singles_or_list|input": {
+                    "id": 9, 
+                    "output_name": "genes_results"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Bundle Collection", 
+                    "name": "singles_or_list"
+                }
+            ], 
+            "label": null, 
+            "name": "Bundle Collection", 
+            "outputs": [
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 2447, 
+                "top": 409
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "galaxy-toolshed.corefacility.ca/repos/nml/bundle_collections/bundle_collection/1.2", 
+            "tool_shed_repository": {
+                "changeset_revision": "85c3a32a510e", 
+                "name": "bundle_collections", 
+                "owner": "nml", 
+                "tool_shed": "galaxy-toolshed.corefacility.ca"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"singles_or_list\": \"{\\\"input\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"type\\\": \\\"list\\\", \\\"__current_case__\\\": 1}\"}", 
+            "tool_version": "1.2", 
+            "type": "tool", 
+            "uuid": "57f70aa7-000e-4841-8882-cb29bc8c5434", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "html_file", 
+                    "uuid": "dd4a7276-f58c-4d9b-99fc-c527d73d3cf3"
+                }
+            ]
+        }, 
+        "11": {
+            "annotation": "", 
+            "content_id": "galaxy-toolshed.corefacility.ca/repos/phil/combine_tabular_collection/combine/0.1", 
+            "id": 11, 
+            "input_connections": {
+                "texts": {
+                    "id": 9, 
+                    "output_name": "fullgenes_results"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Combine", 
+                    "name": "texts"
+                }
+            ], 
+            "label": null, 
+            "name": "Combine", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2447, 
+                "top": 522
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "galaxy-toolshed.corefacility.ca/repos/phil/combine_tabular_collection/combine/0.1", 
+            "tool_shed_repository": {
+                "changeset_revision": "2480c36b4891", 
+                "name": "combine_tabular_collection", 
+                "owner": "phil", 
+                "tool_shed": "galaxy-toolshed.corefacility.ca"
+            }, 
+            "tool_state": "{\"texts\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+            "tool_version": "0.1", 
+            "type": "tool", 
+            "uuid": "3724cdfd-3115-4cbb-ad80-5866079c3c42", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "98b74a68-3e09-4406-b62b-f915f046e2d1"
+                }
+            ]
+        }, 
+        "12": {
+            "annotation": "", 
+            "content_id": "Grouping1", 
+            "id": 12, 
+            "input_connections": {
+                "input1": {
+                    "id": 11, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Group", 
+                    "name": "input1"
+                }
+            ], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2680, 
+                "top": 409
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"3\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"unique\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"3\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"false\\\"\"}", 
+            "tool_version": "2.1.1", 
+            "type": "tool", 
+            "uuid": "807e55cb-073c-4028-af4b-5c2eb105cdea", 
+            "workflow_outputs": []
+        }, 
+        "13": {
+            "annotation": "", 
+            "content_id": "Cut1", 
+            "id": 13, 
+            "input_connections": {
+                "input": {
+                    "id": 12, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Cut", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2908, 
+                "top": 409
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Cut1", 
+            "tool_state": "{\"columnList\": \"\\\"c1\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"delimiter\": \"\\\"T\\\"\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "uuid": "49d6c2cc-a138-40ce-8faf-10efef22e9fc", 
+            "workflow_outputs": []
+        }, 
+        "14": {
+            "annotation": "", 
+            "content_id": "galaxy-toolshed.corefacility.ca/repos/nml/fasta_extract/fa-extract-sequence/1.0.0", 
+            "id": 14, 
+            "input_connections": {
+                "dataset": {
+                    "id": 1, 
+                    "output_name": "output"
+                }, 
+                "file_or_type|list_file": {
+                    "id": 13, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Fasta Extract Sequence", 
+                    "name": "file_or_type"
+                }, 
+                {
+                    "description": "runtime parameter for tool Fasta Extract Sequence", 
+                    "name": "dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Fasta Extract Sequence", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 3136, 
+                "top": 409
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "galaxy-toolshed.corefacility.ca/repos/nml/fasta_extract/fa-extract-sequence/1.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "89a2bd1e564f", 
+                "name": "fasta_extract", 
+                "owner": "nml", 
+                "tool_shed": "galaxy-toolshed.corefacility.ca"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"inverse\": \"\\\"false\\\"\", \"file_or_type\": \"{\\\"list_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0, \\\"select\\\": \\\"list\\\"}\", \"__rerun_remap_job_id__\": null, \"dataset\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"exact\": \"\\\"false\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "879b339b-1a97-486a-b49b-d7e3142bed1a", 
+            "workflow_outputs": []
+        }, 
+        "15": {
+            "annotation": "", 
+            "content_id": "galaxy-toolshed.corefacility.ca/repos/jjohnson/regex_find_replace/regex1/0.1.0", 
+            "id": 15, 
+            "input_connections": {
+                "input": {
+                    "id": 14, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Regex Find And Replace", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Regex Find And Replace", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 3403, 
+                "top": 409
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "galaxy-toolshed.corefacility.ca/repos/jjohnson/regex_find_replace/regex1/0.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "ae58a0e7cf9b", 
+                "name": "regex_find_replace", 
+                "owner": "jjohnson", 
+                "tool_shed": "galaxy-toolshed.corefacility.ca"
+            }, 
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"checks\": \"[{\\\"__index__\\\": 0, \\\"replacement\\\": \\\">\\\\\\\\1\\\", \\\"pattern\\\": \\\"^>\\\\\\\\d+__(.*?)__.*\\\"}]\", \"__page__\": 0}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "35c4446f-843d-4224-b236-8eda44e38470", 
+            "workflow_outputs": []
+        }, 
+        "16": {
+            "annotation": "", 
+            "content_id": "galaxy-toolshed.corefacility.ca/repos/devteam/ncbi_blast_plus/ncbi_makeblastdb/0.1.07", 
+            "id": 16, 
+            "input_connections": {
+                "input_file": {
+                    "id": 15, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool NCBI BLAST+ makeblastdb", 
+                    "name": "mask_data_file"
+                }, 
+                {
+                    "description": "runtime parameter for tool NCBI BLAST+ makeblastdb", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
+            "name": "NCBI BLAST+ makeblastdb", 
+            "outputs": [
+                {
+                    "name": "outfile", 
+                    "type": "data"
+                }
+            ], 
+            "position": {
+                "left": 3675, 
+                "top": 409
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "galaxy-toolshed.corefacility.ca/repos/devteam/ncbi_blast_plus/ncbi_makeblastdb/0.1.07", 
+            "tool_shed_repository": {
+                "changeset_revision": "16e1e6a24ed0", 
+                "name": "ncbi_blast_plus", 
+                "owner": "devteam", 
+                "tool_shed": "galaxy-toolshed.corefacility.ca"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"mask_data_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"title\": \"\\\"Matched Plasmids\\\"\", \"dbtype\": \"\\\"nucl\\\"\", \"__rerun_remap_job_id__\": null, \"hash_index\": \"\\\"true\\\"\", \"tax\": \"{\\\"__current_case__\\\": 0, \\\"taxselect\\\": \\\"\\\"}\", \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"parse_seqids\": \"\\\"false\\\"\"}", 
+            "tool_version": "0.1.07", 
+            "type": "tool", 
+            "uuid": "2e1eebdd-d4b7-4e44-a284-f7715f739a79", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "outfile", 
+                    "uuid": "7350144d-ec87-41dc-ba69-0152a78d1eee"
+                }
+            ]
+        }, 
+        "17": {
+            "annotation": "", 
+            "content_id": "galaxy-toolshed.corefacility.ca/repos/devteam/ncbi_blast_plus/ncbi_blastn_wrapper/0.1.07", 
+            "id": 17, 
+            "input_connections": {
+                "db_opts|histdb": {
+                    "id": 16, 
+                    "output_name": "outfile"
+                }, 
+                "query": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool NCBI BLAST+ blastn", 
+                    "name": "db_opts"
+                }, 
+                {
+                    "description": "runtime parameter for tool NCBI BLAST+ blastn", 
+                    "name": "query"
+                }
+            ], 
+            "label": null, 
+            "name": "NCBI BLAST+ blastn", 
+            "outputs": [
+                {
+                    "name": "output1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 4003, 
+                "top": 409
+            }, 
+            "post_job_actions": {
+                "EmailActionoutput1": {
+                    "action_arguments": {}, 
+                    "action_type": "EmailAction", 
+                    "output_name": "output1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "galaxy-toolshed.corefacility.ca/repos/devteam/ncbi_blast_plus/ncbi_blastn_wrapper/0.1.07", 
+            "tool_shed_repository": {
+                "changeset_revision": "16e1e6a24ed0", 
+                "name": "ncbi_blast_plus", 
+                "owner": "devteam", 
+                "tool_shed": "galaxy-toolshed.corefacility.ca"
+            }, 
+            "tool_state": "{\"evalue_cutoff\": \"\\\"0.001\\\"\", \"__page__\": 0, \"adv_opts\": \"{\\\"adv_opts_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"blast_type\": \"\\\"megablast\\\"\", \"db_opts\": \"{\\\"db_opts_selector\\\": \\\"histdb\\\", \\\"subject\\\": \\\"\\\", \\\"histdb\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1, \\\"database\\\": \\\"\\\"}\", \"output\": \"{\\\"out_format\\\": \\\"ext\\\", \\\"__current_case__\\\": 1}\", \"query\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "0.1.07", 
+            "type": "tool", 
+            "uuid": "54dc5cef-b2e1-447d-91c5-d7e29d633f03", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output1", 
+                    "uuid": "a9c05bfd-1ecd-487e-b6f1-9a1ca16336de"
+                }
+            ]
+        }, 
+        "18": {
+            "annotation": "", 
+            "content_id": "galaxy-toolshed.corefacility.ca/repos/nml/plasmid_profiler/plasmid_profiler/0.1.3", 
+            "id": 18, 
+            "input_connections": {
+                "blastfile": {
+                    "id": 17, 
+                    "output_name": "output1"
+                }, 
+                "srst2file": {
+                    "id": 11, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Plasmid Profiler", 
+                    "name": "sureness"
+                }, 
+                {
+                    "description": "runtime parameter for tool Plasmid Profiler", 
+                    "name": "srst2file"
+                }, 
+                {
+                    "description": "runtime parameter for tool Plasmid Profiler", 
+                    "name": "length"
+                }, 
+                {
+                    "description": "runtime parameter for tool Plasmid Profiler", 
+                    "name": "coverage"
+                }, 
+                {
+                    "description": "runtime parameter for tool Plasmid Profiler", 
+                    "name": "blastfile"
+                }
+            ], 
+            "label": null, 
+            "name": "Plasmid Profiler", 
+            "outputs": [
+                {
+                    "name": "PNGOutput", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "HTMLOutput", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "CSVOutput", 
+                    "type": "csv"
+                }
+            ], 
+            "position": {
+                "left": 4305, 
+                "top": 409
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "galaxy-toolshed.corefacility.ca/repos/nml/plasmid_profiler/plasmid_profiler/0.1.3", 
+            "tool_shed_repository": {
+                "changeset_revision": "b593958703c3", 
+                "name": "plasmid_profiler", 
+                "owner": "nml", 
+                "tool_shed": "galaxy-toolshed.corefacility.ca"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"sureness\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"srst2file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"anonymize\": \"\\\"false\\\"\", \"length\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"combineincs\": \"\\\"false\\\"\", \"coverage\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"title\": \"\\\"${plot_title}\\\"\", \"blastfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "0.1.3", 
+            "type": "tool", 
+            "uuid": "23d82763-ba35-48c1-8500-608fe1bd0c46", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "JPGOutput", 
+                    "uuid": "56cb8ca8-1e13-44fc-bbe7-33091e7d877d"
+                }, 
+                {
+                    "label": null, 
+                    "output_name": "HTMLOutput", 
+                    "uuid": "674d288e-9a1a-458d-a425-3402f0005198"
+                }, 
+                {
+                    "label": null, 
+                    "output_name": "CSVOutput", 
+                    "uuid": "c3f84758-9b53-43fb-b6a7-d398fb5c8ac6"
+                }, 
+                {
+                    "label": null, 
+                    "output_name": "PNGOutput", 
+                    "uuid": "18a847f3-c2a0-4565-822a-92bc28d839bd"
+                }
+            ]
+        }
+    }, 
+    "uuid": "f803aa61-afbb-4ba0-946f-1c4249bf96f8"
+}

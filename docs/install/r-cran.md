@@ -1,25 +1,40 @@
-R - CRAN Library
-==========
+# R Package Installation
 
-A [VirtualBox][] virtual machine is provided for running SNVPhyl along with Galaxy.  This machine requires at least **4 GB** of memory and **4 CPUs** to properly run.  The machine can be quickly launched using [Vagrant][] with the following commands.
+## From CRAN
 
-```bash
-git clone https://irida.corefacility.ca/analysis-pipelines/snvphyl-galaxy
-cd snvphyl-galaxy/vagrant
-vagrant up
+A '.tar.gz' package can be downloaded directly from [CRAN][] and installed to your local R library.  
+
+From the terminal:
+```
+$R CMD INSTALL Plasmidprofiler_X.X.X.tar.gz
+```
+Then inside your R session run the following command:
+```
+library(Plasmidprofiler)
 ```
 
-Running `vagrant up` will download and launch the virtual machine.  Galaxy can be accessed by navigating to <http://localhost:48888>.  The default username and passwords are:
+## Install in RStudio
 
-* **User:** *admin@localhost.localdomain*
-* **Password:** *adminpassword*
+If using [RStudio][] then installation is as easy as clicking 'install' on the packages pane and searching for 'Plasmidprofiler' from the CRAN repository. Be sure to install all dependencies as well.
 
-Once logged in, the workflows for SNVPhyl can be accessed by clicking on **Workflow** at the top.
-
-Accessing the R Library
------------------------------
+![Install in RStudio][]
 
 
-[RStudio]: https://www.virtualbox.org/
+
+
+
+
+
+
+
+
+
+
+[CRAN]: https://cran.r-project.org/package=Plasmidprofiler
+[RStudio]: https://www.rstudio.com/
+[Install in RStudio]: images/installInRStudio.png
+
+
+
 [Vagrant]:  https://www.vagrantup.com/
 [Packer]: https://packer.io/

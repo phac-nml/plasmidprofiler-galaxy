@@ -1,0 +1,71 @@
+<tool id="bundle_collection" name="Bundle Collection" version="1.2.1">
+	<description>Download a collection of files</description>
+	<stdio>
+  	<exit_code range="1:" level="fatal" description="Unknown error has occurred"/>
+  </stdio>
+	<command interpreter="perl">bundle_collection.pl -h $html_file -p $html_file.files_path
+
+        #if $singles_or_list.type == "list":
+
+                #if $singles_or_list.input:
+               	    #for $f in $singles_or_list.input.keys
+		    -i "$f,$singles_or_list.input[$f].ext=$singles_or_list.input[$f]"
+		    #if $singles_or_list.input[$f].metadata.bam_index and $singles_or_list.input[$f].metadata.bam_index != "None"
+		        #set $bamind = $f+","+$singles_or_list.input[$f].ext+".bai="+$singles_or_list.input[$f].metadata.bam_index
+		        -i "$bamind"
+	            #end if
+		    #end for
+                #end if
+      #elif $singles_or_list.type == "singles":
+                #for $dataset in $singles_or_list.single_files
+                    #if $dataset.single_file:
+                        -i "$dataset.single_file.name,$dataset.single_file.ext=$dataset.single_file"
+                    #end if
+
+		    #if $dataset.single_file.metadata.bam_index and $dataset.single_file.metadata.bam_index != "None"
+		        #set $bamind = $dataset.single_file.name+","+$dataset.single_file.ext+".bai="+$dataset.single_file.metadata.bam_index
+		        -i "$bamind"
+	            #end if
+                    
+                #end for
+      #end if
+	</command>
+
+	<inputs>
+          <conditional name="singles_or_list">
+            <param name="type" type="select" label="Bundle type">
+              <option value="singles">Individual datasets</option>
+              <option value="list">List Collection </option>
+            </param>
+            <when value="singles">
+              <repeat name='single_files' title='Single dataset(s)'>
+                <param name="single_file" label="Dataset to add the bundle" type="data" format='data' optional='False'/>
+              </repeat>              
+            </when>
+            <when value="list">
+              <param name="input" type="data_collection" label="Data Collection" collection_type="list" optional='False'/>
+            </when>
+          </conditional>
+	</inputs>
+
+	<outputs>
+		<data name="html_file" format="html" label="Bundled Collection" />
+	</outputs>
+	<tests>
+		<test>
+		  <output/>
+		</test>
+	</tests>
+
+	<help>
+		***What it does**
+
+		This tool will bundle up files in a list collection into a downloadable zip file
+
+		Author: Mariam Iskander and Jen Cabral
+	</help>
+
+	<citations>
+  </citations>
+
+</tool>

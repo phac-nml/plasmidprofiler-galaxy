@@ -2,34 +2,34 @@
 
 This describes the main input files of the Plasmid Profiler Pipeline.  Please see the [Usage][] documentation for details on running with these input files.
 
-# Reference Genome
+# Reference Plasmid Database
 
-The reference genome is used for the reference mapping stage of the pipeline.  Ideally, this should represent a closed and finished genome very close to the other genomes to examine.  When such as genome is not already available, it is possible to use a *de novo* assembled genome as a reference.  However, with a *de novo* assembled genome there exists a greater possibilty of sequence alignment issues and missing data.
+This is a curated database of plasmids compiled from NCBI starting with all *Gammaproteobacteriaceae* categorized submissions (n=2797, size range: 1065-727,905 bp). It can be found in the data libraries of the Plasmid Profiler Dockerized Galaxy instance or at the [Plasmid Profiler Database][]
 
-An example reference genome looks like.
 
-![reference-genome][]
+# Replicon Sequences and Genes of Interest
 
-# Invalid Positions masking file
-
-The invalid positions file is used to mask out regions on the reference genome with variants.  Masked regions will not be included in the phylogeny.  The format of the invalid positions file is a [BED][]-like tab-deliminated file defining the chromosome/contig/fasta sequence name and the start and end coordinates to exclude.
+This is a multi-fasta file that can be found in the data libraries of the Plasmid Profiler Dockerized Galaxy instance or on the GitHub page: [Plasmid Finder Database][]. It is user modifiable prior to running the pipeline. The original 116 plasmid replicon sequences from [Plasmid Finder][] are supplemented by several carbepenamase genes prefixed with '(AMR)' as below. These can be replaced, added to, or removed using a text editor or Galaxy fasta tools. The '(AMR)' must remain for them to be identified by Plasmid Profiler.
 
 ```
-#Chromosome    Start    End
-reference      1        10
+>(AMR)GeneName_Accession
+NUCLEOTIDESEQUENCE
 ```
 
 # Sequence Reads
 
-The sequence reads are the set of reads to use for mapping and variant calling.  The provided workflow currently only supports paired-end sequence reads.  These should be in [FASTQ][] format.  Within Galaxy these should be imported with the **fastqsanger** data type and structured within a paired-end dataset collection.
+The sequence reads are the whole genome sequencing reads against which Plasmid Profiler will search for plasmids. These can be paired end or single end reads and should be in [FASTQ][] format.  Within Galaxy these should be imported with the **fastqsanger** data type and structured within a collection.
 
 ![galaxy-paired-sequence-reads][]
 
 Please see the [Preparing Sequence Reads][] documentation for details on how to structure the data.
 
 [Usage]: usage.md
-[reference-genome]: images/reference-genome.png
+[Plasmid Profiler Database]: https://github.com/phac-nml/plasmidprofiler-galaxy/blob/master/docker/galaxy/pp_plasmid_database.fasta.gz
+[Plasmid Finder]: https://cge.cbs.dtu.dk/services/PlasmidFinder/
+[Plasmid Finder Database]: https://github.com/phac-nml/plasmidprofiler-galaxy/blob/master/docker/galaxy/plasmidfinder_plusAMR.fasta
 [FASTQ]: https://en.wikipedia.org/wiki/FASTQ_format
 [galaxy-paired-sequence-reads]: images/galaxy-paired-sequence-reads.png
 [Preparing Sequence Reads]: usage.md#preparing-sequence-reads
-[BED]: http://genome.ucsc.edu/FAQ/FAQformat#format1
+
+

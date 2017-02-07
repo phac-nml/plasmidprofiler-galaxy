@@ -34,6 +34,8 @@ Heatmap display of plasmid content in WGS data. This program parses plasmids ide
 ## Documentation ##
 -------------------
 
+Current Documentation is available at [plasmid-profiler.readthedocs.io][]
+
 Documentation is written using [Markdown][] and can be compiled using [mkdocs][].  To install [mkdocs][] please run:
 
 ```bash
@@ -48,6 +50,6 @@ mkdocs serve
 
 This will build a site under http://localhost:8000.
 
-
+[plasmid-profiler.readthedocs.io]: http://plasmid-profiler.readthedocs.io
 [Markdown]: http://daringfireball.net/projects/markdown/syntax
 [mkdocs]: http://www.mkdocs.org

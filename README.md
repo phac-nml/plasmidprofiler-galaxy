@@ -31,8 +31,12 @@
 
 Heatmap display of plasmid content in WGS data. This program parses plasmids identified through SRST2 and BLAST, scores them based on a combined measure of maximized coverage and minimized sequence divergence, and produces visualizations along with tabular results. Best used on results from the workflow "P2 - Plasmid Profiler: SRST2 and BLAST"
 
+Detailed documentation can be found at http://plasmid-profiler.readthedocs.io/. This repository contains the customized [Galaxy][] tools for this pipeline as well as the source for the documentation.
+
 ## Documentation ##
 -------------------
+
+Current Documentation is available at [plasmid-profiler.readthedocs.io][]
 
 Documentation is written using [Markdown][] and can be compiled using [mkdocs][].  To install [mkdocs][] please run:
 
@@ -48,6 +52,7 @@ mkdocs serve
 
 This will build a site under http://localhost:8000.
 
-
+[plasmid-profiler.readthedocs.io]: http://plasmid-profiler.readthedocs.io
 [Markdown]: http://daringfireball.net/projects/markdown/syntax
 [mkdocs]: http://www.mkdocs.org
+[Galaxy]: https://galaxyproject.org/

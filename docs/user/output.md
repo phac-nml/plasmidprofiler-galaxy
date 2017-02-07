@@ -1,67 +1,65 @@
 # Output
 
-This describes the main output files of SNVPhyl.  This includes the phylogenetic tree, distance matrix, along with additional quality, filtering, and mapping information.
+This section describes the main output files of Plasmid Profiler including the heatmap in png and interactive HTML format, and a comma separated value file of all identified plasmids.
 
-# Phylogeny
+# Static Heat Map
 
-The file `phylogeneticTree.newick` is the maximum likelihood phylogeny generated from an alignment of SNVs extracted from the whole genomes of each input file in [Newick][] format.
+Example PNG output of the plasmid profiler. A number of different sections are described below:   
+ **A)** Dendrogram revealing plasmid content similarity between samples  
+ **B)** Heatmap created using ggplot2's tile geometry where colour indicates incompatibility group membership and alpha value the Sureness score over a range from filter cut off to 1.  
+ **C)** Legends for Sureness, incompatibility group colour guide, and resistance gene of interest colour and identity.  
+ **D)** Any data filtering applied is noted here.  
+ **E)** Plasmid names below the heatmap are coloured according to the best hit resistance gene of interest found within that plasmid.  
 
-![snv-tree][]
 
-# SNV/SNP Table
+![fullexampleheatmap][]
 
-The file `snpTable.tsv` represents a table of all detected variant sites.  The position of each site is given by a combination of **Chromsome** (contig/sequence name) and **Position** on the reference genome.  The **Status** column represents whether this position was kept for constructing a phylogeny/distance matrix (**valid**) or filtered out.  The posible status values are:
 
-   * **valid**: Represents a position that passed all filtering criteria for every genome.  These positions are used in the SNV alignment used to construct a phylogenetic tree and a distance matrix.
-   * **filtered-invalid**: Represents a position that was removed due to either being present on a repeat region, or within a region passed in the `invalid_positions` file.
-   * **filtered-coverage**: Represents a position where at least one genome did not meet the minimum coverage criteria.  The value inserted in the table in this case is a `-`.
-   * **filtered-mpileup**: Represents a position where there was a mismatch in variant calls between **FreeBayes** and **SAMtools/mpileup/BCFtools**.  This often occurs in positions which met the **min_coverage** criteria, but did not meet the other criteria for calling a variant with FreeBayes, such as the minimum alternative allele ratio, or mapping quality scores. The value inserted in the table in this case is an `N`.
+# Interactive Heat Map
 
-![snv-table-galaxy][]
+An [example interactive heatmap][] can be found in the [Plasmid Profiler GitHub][]. 
 
-# Filter Stats
+![html1][]
 
-A summary of the number of SNVs filtered within in the SNV Table.
+This heatmap is generated using the [ggplotly][] function of [plotly][]. It allows selection of a subset by dragging a selection over the desired plasmids as well as selection by incompatibility group. 
 
-![filter-stats][]
+![html2][]
 
-# SNV/SNP Matrix
+Clicking on the camera icon at the upper right will save the current plot as a '.png' file. 
 
-The file `snpMatrix.tsv` represents a pair-wise distance matrix of SNVs that passed all filtering criteria (has status **valid** in the `snpTable.txt`).
+![html3][]
 
-![snv-matrix-galaxy][]
+Double click the plot area to reset the view. Hovering the mouse cursor over the coloured blocks of the heatmap will reveal a popup with details of that plasmid and sample. 
 
-# Core Positions
+![html4][]
 
-The file `vcf2core.tsv` is a table of the evaluated core positions in each reference fasta sequence.
+Current functionality of the interactive plot restricts the use of alpha values to indicate sureness and coloration of plasmid names to indicate presence of the genes of interest. These can be observed in the popups for each plasmid. 
 
-![core-positions-table][]
+# Comma Separated Value Table of Results
+A comma separated table of values is also exported from the Plasmid Profiler pipeline. This contains all identified plasmids sorted by sample with the following information about each. The columns are as follows:
 
-The columns are as follows:
+   * **Incompatibility Group:** Plasmid replicon identified from Plasmid Finder Database. '-' if no match.  
+   * **Plasmid Coverage:** Percentage of the plasmid covered by reads to minimum depth as measured by SRST2.
+   * **Sequence Divergence:** Sequence divergence from the reference plasmid over the covered area at minimum depth as measured by SRST2.
+   * **Length:** Length of the plasmid.
+   * **Cluster ID:** Cluster ID from CD-HIT.
+   * **Sureness Value:** Normalized difference between plasmid coverage and sequence divergence. 
+   * **Gene of Interest:** Gene of interest identified with appended BLAST PID.
 
-   * **Reference**:  The reference fasta sequence name.  The value of **all** represents the sum of all sequences.
-   * **total length**:   The total length of the fasta sequence.
-   * **total invalid pos**:  The total number of invalid positions removed from analysis.
-   * **total valid pos**:  The total number of valid positions to be evaluated.
-   * **total core**:  The total number of positions within the core genome on this fasta sequence.  That is, the total positions with enough coverage to be evaluated.
-   * **Percentage in core**:  The percent of core positions evaluated out of the valid positions.  That is _100*(total core)/(total valid pos)_.
-
-# SNV/SNP Alignment
-
-An alignment of SNVs used to generate the phylogenetic tree.
-
-![snv-alignment][]
-
-# Mapping Quality
-
-The file `mappingQuality.txt` describes how well the given reads mapped to the reference genome.  This can help to evaluate if one genome has either too little data to be included in the analysis, or if the reference genome is very distantly related, or other potential issues.
-
-![mapping-quality][]
-
-The tool to generate this file takes two parameters, **min coverage** and **min percent covered** which represents the minimum percentage of the reference genome with reads over the minimum coverage mapped.  The output is a list of all input genomes which did not meet the criteria as well as the percent of coverage over the reference genome.
+![csv example][]
 
 [Newick]: https://en.wikipedia.org/wiki/Newick_format
-[snv-tree]: images/snv-tree.png
+[fullexampleheatmap]: images/fullexampleheatmap.png
+[example interactive heatmap]: https://github.com/phac-nml/plasmidprofiler-galaxy/blob/master/docs/examples/exampleinteractiveheatmap.html
+[Plasmid Profiler GitHub]: https://github.com/phac-nml/plasmidprofiler-galaxy
+[ggplotly]: https://plot.ly/ggplot2/
+[plotly]: https://plot.ly/feed/
+[html1]: images/html-1.png
+[html2]: images/html-2.png
+[html3]: images/html-3.png
+[html4]: images/html-4.png
+[csv example]: images/csv-ex.png
+
 [snv-matrix-galaxy]: images/snv-matrix-galaxy.png
 [snv-table-galaxy]: images/snv-table-galaxy.png
 [core-positions-table]: images/core-positions-table.png

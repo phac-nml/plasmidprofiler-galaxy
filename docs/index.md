@@ -8,7 +8,7 @@ Plasmid profiler is a pipeline to perform comparative plasmid content analysis. 
 
 The stages of the Plasmid Profiler pipeline are as follows:
 
-[![snvphyl-overview][]][snvphyl-overview]
+[![PP-flowchart][]][PP-flowchart]
 
 1. Preparing input files including:  
     1. A set of sequence reads.  
@@ -48,8 +48,8 @@ Jennifer Cabral <jennifer.cabral@phac-aspc.gc.ca>
 
 [PhyML]: http://www.atgc-montpellier.fr/phyml/
 [Usage]: user/usage.md
-[snvphyl-overview]: images/snvphyl-overview.png
-[plasmid-profiler-overview-galaxy]: images/plasmid-profiler-overview-galaxy.png
+[PP-flowchart]: images/PP-flowchart.png
+[plasmid-profiler-overview-galaxy]: images/screenshot136.png
 
 [output]: user/output.md
 [Input]: user/input.md

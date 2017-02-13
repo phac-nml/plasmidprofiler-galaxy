@@ -15,7 +15,7 @@ pages:
     - 'Galaxy': 'install/galaxy.md'
     - 'Versions': 'install/versions.md'
 - Examples:
-    - 'Listeria monocytogenes': 'examples/listeria-monocytogenes.md'
+    - 'Example Run': 'examples/example-run.md'
 - Developer:
     - 'Upgrading' : 'developer/upgrading.md'
 theme: readthedocs

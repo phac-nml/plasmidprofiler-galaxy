@@ -39,7 +39,9 @@ All available from [CRAN][].
 [reshape2][]  
 [stringr][]  
 
+## Explanation of the R Package Functions
 
+Explore the [Example Section][] for details on the R package functions and how to use them. 
 
 
 
@@ -67,4 +69,4 @@ All available from [CRAN][].
 [RColorBrewer]: https://cran.r-project.org/package=RColorBrewer
 [reshape2]: https://cran.r-project.org/package=reshape2
 [stringr]: https://cran.r-project.org/package=stringr
-
+[Example Section]: ../examples/example-run.md

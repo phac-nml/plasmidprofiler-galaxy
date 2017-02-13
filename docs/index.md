@@ -1,4 +1,4 @@
-# Plasmid Profiler Pipeline: Heatmap display of plasmid content in WGS data
+# Plasmid Profiler Pipeline: Heatmap Display of Plasmid Content in WGS Data
 
 Plasmid profiler is a pipeline to perform comparative plasmid content analysis. It is designed to rapidly bin plasmid content using KAT, Short Read Sequence Typing, and BLAST followed by scoring hits based on a combined measure of maximized coverage and minimized sequence divergence. Hits are then visualized in both static and interactive heatmaps as well as arranged as tabular results. [Input][] is provided in the form of a collection of whole genome sequence reads along with a reference plasmid database and replicon/gene of interest database.  The [output][] from the pipeline consists of a png heatmap, an interactive html heatmap, and tabular format results of all plasmids identified and their respective scores.
 

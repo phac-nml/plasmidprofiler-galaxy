@@ -1,6 +1,6 @@
 # Usage
 
-PlasmidProfiler is implemented as a set of tools and a workflow within the [Galaxy][] platform.  PlasmidProfiler can be installed within an existing Galaxy infrastructure, or provided virtual machines and [Docker][] images can be downloaded with both Galaxy and PlasmidProfiler.  Please see the [Install][] guide  for more details.
+PlasmidProfiler is implemented as a set of tools and a workflow within the [Galaxy][] platform.  PlasmidProfiler can be installed within an existing Galaxy infrastructure, or provided virtual machines and [Docker][] images can be downloaded with both Galaxy and PlasmidProfiler.  Please see the [Install][] guide for more details.
 
 ## Install
 
@@ -8,7 +8,7 @@ The easiest way to get started is to use [Docker][].  To both install Docker and
 
 ```bash
 curl -sSL https://get.docker.com/ | sh # Installs Docker
-sudo docker run -t -p 48888:80 jcabral/PlasmidProfiler-galaxy-0.1.3 # Downloads and runs PlasmidProfiler and Galaxy 
+sudo docker run -t -p 48888:80 jencabral/plasmidprofiler_0_1_6 # Downloads and runs PlasmidProfiler and Galaxy 
 ```
 
 This will install Docker, download the PlasmidProfiler Galaxy docker image, and run this image in a Docker container.  This will take a while to fully download and start up.  You may have to start the `docker` service after installation for Docker to work.  This should be a command like `sudo service docker start`, or `sudo systemctl start docker` depending on your system.  See the [Docker Install][] guide for more details.
@@ -172,6 +172,10 @@ This indicates no valid SNVs were detected, which could be caused by very little
 
 If examining the datasets does not help diagnose the issue, then examining the Galaxy log files can be helpful.  With Docker, these should be printed to the screen.  With other installation methods the location may vary.  Please refer to the [Install][] section for more details.
 
+# Output Manipulation in R
+
+See the [Example Section][] for details on how to use the other package functions in an R environment. 
+
 [Galaxy]: http://galaxyproject.org/
 [Docker]: https://www.docker.com/
 [Docker Install]: https://docs.docker.com/installation/
@@ -215,3 +219,4 @@ If examining the datasets does not help diagnose the issue, then examining the G
 [Output]: output.md
 [workflows-list]: images/workflows-list.png
 [workflow-top-menu]: images/workflow-top-menu.png
+[Example Section]: ../examples/example-run.md

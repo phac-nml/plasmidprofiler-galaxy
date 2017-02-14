@@ -1,6 +1,6 @@
 # Usage
 
-PlasmidProfiler is implemented as a set of tools and a workflow within the [Galaxy][] platform.  PlasmidProfiler can be installed within an existing Galaxy infrastructure, or provided virtual machines and [Docker][] images can be downloaded with both Galaxy and PlasmidProfiler.  Please see the [Install][] guide  for more details.
+PlasmidProfiler is implemented as a set of tools and a workflow within the [Galaxy][] platform.  PlasmidProfiler can be installed within an existing Galaxy infrastructure, or provided virtual machines and [Docker][] images can be downloaded with both Galaxy and PlasmidProfiler.  Please see the [Install][] guide for more details.
 
 ## Install
 

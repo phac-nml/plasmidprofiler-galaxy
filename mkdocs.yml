@@ -4,10 +4,10 @@ site_description:  Plasmid Profiler Pipeline, Heatmap display of plasmid content
 repo_url: https://irida.corefacility.ca/analysis-pipelines/
 pages:
 - Home: 'index.md'
-- User:
-    - 'Usage': 'user/usage.md'
-    - 'Input': 'user/input.md'
-    - 'Output': 'user/output.md'
+- Galaxy:
+    - 'Usage': 'galaxy/usage.md'
+    - 'Input': 'galaxy/input.md'
+    - 'Output': 'galaxy/output.md'
 - Installation:
     - 'Home': 'install/index.md'
     - 'Docker': 'install/docker.md'

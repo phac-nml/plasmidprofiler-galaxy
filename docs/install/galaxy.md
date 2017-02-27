@@ -24,7 +24,7 @@ Please select the version you wish to install and follow the steps to install th
 
 The current Plasmid Profiler Galaxy workflow for version 0.1.6 can be found at [Plasmid Profiler 0.1.6][].  Please import these files by navigating to **Workflow > Upload or import workflow**.  On completion you should have a set of workflows available.
 
-Installation should now be complete.  Please see the [Usage][] documentation for more information on how to use SNVPhyl.
+Installation should now be complete.  Please see the [Usage][] documentation for more information on how to use Plasmid Profiler.
 
 [Galaxy]: https://galaxyproject.org/
 [suite-plasmidprofiler-repository]: images/suite-plasmidprofiler-repository.png

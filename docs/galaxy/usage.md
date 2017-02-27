@@ -58,7 +58,7 @@ When all the reads are uploaded, you should see the following in your Galaxy his
 
 ## Preparing Sequence Reads
 
-SNVPhyl makes use of a data structure in Galaxy called [Dataset Collections][].  Dataset collections allow the grouping of files into a single entry in Galaxy to execute in a workflow.  The SNVPhyl workflow assumes all sequence reads are combined in a paired-end dataset collection, which will properly associated each pair of sequence reads files.
+Plasmid Profiler makes use of a data structure in Galaxy called [Dataset Collections][].  Dataset collections allow the grouping of files into a single entry in Galaxy to execute in a workflow.  The Plasmid Profiler workflow assumes all sequence reads are combined in a paired-end dataset collection, which will properly associated each pair of sequence reads files.
 
 To construct a paired dataset collection of reads in Galaxy, please do the following:
 
@@ -155,20 +155,6 @@ Then selecting **Unhide hidden datasets**.
 For more information about interacting with data from Galaxy, please see the [Learn Galaxy][] page.
 
 # Managing Errors
-
-When an error occurs for a tool in Galaxy, the dataset boxes in the history will show up in red.  Clicking on the **bug** icon will bring up more details about an error.
-
-![galaxy-dataset-error][]
-
-![galaxy-dataset-error-details][]
-
-In this case, the message reports no valid phylip alignment.  Checking the [SNV/SNP Alignment][] file shows it is empty.
-
-![snp-alignment-error][]
-
-This indicates no valid SNVs were detected, which could be caused by very little data in one more more samples.  Confirming this can be done by examining some of the additional output files decribed in the [Output][] section.
-
-If examining the datasets does not help diagnose the issue, then examining the Galaxy log files can be helpful.  With Docker, these should be printed to the screen.  With other installation methods the location may vary.  Please refer to the [Install][] section for more details.
 
 # Output Manipulation in R
 

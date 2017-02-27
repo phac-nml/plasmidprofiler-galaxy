@@ -94,12 +94,10 @@ Once all the data has been prepared, the workflow can be run.  The installed wor
 
 Near the bottom.
 
-REPLACE THIS PHOTO!!
 ![installed-workflows][] 
 
 Or, alternatively, by clicking on the **Workflows** menu at the top ![workflow-top-menu][].
 
-REPLACE THIS PHOTOT!!
 ![workflows-list][]
 
 ## Parameters

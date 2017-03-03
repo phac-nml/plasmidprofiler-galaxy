@@ -1,7 +1,7 @@
 site_name: PlasmidProfiler
 site_url: http://plasmidprofiler.readthedocs.org
 site_description:  Plasmid Profiler Pipeline, Heatmap display of plasmid content in WGS data.
-repo_url: https://irida.corefacility.ca/analysis-pipelines/
+repo_url: https://github.com/phac-nml/plasmidprofiler-galaxy/
 pages:
 - Home: 'index.md'
 - Galaxy:

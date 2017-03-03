@@ -41,14 +41,7 @@ All available from [CRAN][].
 
 ## Explanation of the R Package Functions
 
-Explore the [Example Section][] for details on the R package functions and how to use them. 
-
-
-
-
-
-
-
+See the Plasmid Profiler [Reference Manual][] for details on the R package functions.
 
 
 [CRAN]: https://cran.r-project.org/package=Plasmidprofiler
@@ -69,4 +62,4 @@ Explore the [Example Section][] for details on the R package functions and how t
 [RColorBrewer]: https://cran.r-project.org/package=RColorBrewer
 [reshape2]: https://cran.r-project.org/package=reshape2
 [stringr]: https://cran.r-project.org/package=stringr
-[Example Section]: ../examples/example-run.md
+[Reference Manual]: https://cran.r-project.org/web/packages/Plasmidprofiler/Plasmidprofiler.pdf

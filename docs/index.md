@@ -30,7 +30,7 @@ More information on the operation and installation of the pipeline can be found 
 
 Comments, questions, or issues can be sent to:  
 Adrian Zetner <adrian.zetner@phac-aspc.gc.ca>   
-Jennifer Cabral <jennifer.cabral@phac-aspc.gc.ca>
+Jennifer Cabral <jennifer.cabral@canada.ca>
 
 <!-- Links in order of sight in the page -->
 [exampleHM]: images/exampleheatmap.png

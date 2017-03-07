@@ -4,7 +4,7 @@
 	<repository name="regex_find_replace" owner="jjohnson"  toolshed="https://toolshed.g2.bx.psu.edu/" />
 	<repository name="fasta_extract" owner="nml"  toolshed="https://toolshed.g2.bx.psu.edu/" />
 	<repository name="bundle_collections" owner="nml"  toolshed="https://toolshed.g2.bx.psu.edu/" />
-	<repository name="combine_tabular_collection" owner="phil"  toolshed="https://toolshed.g2.bx.psu.edu/" />
+	<repository name="combine_tabular_collection" owner="nml"  toolshed="https://toolshed.g2.bx.psu.edu/" />
 	<repository name="plasmid_profiler" owner="nml"  toolshed="https://toolshed.g2.bx.psu.edu/" />
 	<repository name="srst2" owner="nml"  toolshed="https://toolshed.g2.bx.psu.edu/" />
 	<repository name="kat_sect" owner="nml"  toolshed="https://toolshed.g2.bx.psu.edu/" />

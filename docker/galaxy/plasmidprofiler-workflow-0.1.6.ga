@@ -20,7 +20,7 @@
             "outputs": [], 
             "position": {
                 "left": 200, 
-                "top": 411
+                "top": 384
             }, 
             "tool_errors": null, 
             "tool_id": null, 
@@ -52,7 +52,7 @@
             "outputs": [], 
             "position": {
                 "left": 200, 
-                "top": 496
+                "top": 469
             }, 
             "tool_errors": null, 
             "tool_id": null, 
@@ -84,7 +84,7 @@
             "outputs": [], 
             "position": {
                 "left": 200, 
-                "top": 581
+                "top": 554
             }, 
             "tool_errors": null, 
             "tool_id": null, 
@@ -134,7 +134,7 @@
             ], 
             "position": {
                 "left": 528, 
-                "top": 334
+                "top": 307
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -183,7 +183,7 @@
             ], 
             "position": {
                 "left": 778, 
-                "top": 334
+                "top": 307
             }, 
             "post_job_actions": {
                 "HideDatasetActionout_file1": {
@@ -226,7 +226,7 @@
             ], 
             "position": {
                 "left": 1017, 
-                "top": 334
+                "top": 307
             }, 
             "post_job_actions": {
                 "HideDatasetActionout_file1": {
@@ -269,7 +269,7 @@
             ], 
             "position": {
                 "left": 1245, 
-                "top": 334
+                "top": 307
             }, 
             "post_job_actions": {
                 "HideDatasetActionout_file1": {
@@ -312,7 +312,7 @@
             ], 
             "position": {
                 "left": 1473, 
-                "top": 334
+                "top": 307
             }, 
             "post_job_actions": {
                 "HideDatasetActionout_file1": {
@@ -363,7 +363,7 @@
             ], 
             "position": {
                 "left": 1701, 
-                "top": 334
+                "top": 307
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -388,7 +388,7 @@
         }, 
         "9": {
             "annotation": "", 
-            "content_id": "toolshed.g2.bx.psu.edu/repos/nml/srst2/srst2/0.3.6", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/nml/srst2/srst2/0.3.7", 
             "id": 9, 
             "input_connections": {
                 "mlst_or_genedb|databases_0|gene_db": {
@@ -439,8 +439,8 @@
                 }
             ], 
             "position": {
-                "left": 1968, 
-                "top": 334
+                "left": 1964, 
+                "top": 193
             }, 
             "post_job_actions": {
                 "HideDatasetActionalleles": {
@@ -480,15 +480,15 @@
                 }
             }, 
             "tool_errors": null, 
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/nml/srst2/srst2/0.3.6", 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/nml/srst2/srst2/0.3.7", 
             "tool_shed_repository": {
-                "changeset_revision": "6f870ed59b6e", 
+                "changeset_revision": "599a4dc309aa", 
                 "name": "srst2", 
                 "owner": "nml", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
             "tool_state": "{\"single_or_paired\": \"{\\\"fastq_collection\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"type\\\": \\\"collection\\\", \\\"__current_case__\\\": 2}\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"options\": \"{\\\"min_coverage\\\": \\\"0\\\", \\\"minins\\\": \\\"0\\\", \\\"baseq\\\": \\\"20\\\", \\\"min_edge_depth\\\": \\\"2\\\", \\\"mapq\\\": \\\"1\\\", \\\"prob_err\\\": \\\"0.01\\\", \\\"min_depth\\\": \\\"5\\\", \\\"maxins\\\": \\\"1000\\\", \\\"__current_case__\\\": 0, \\\"stop_after\\\": \\\"1000000\\\", \\\"max_divergence\\\": \\\"0\\\", \\\"select\\\": \\\"advanced\\\"}\", \"mlst_or_genedb\": \"{\\\"gene_max_mismatch\\\": \\\"250\\\", \\\"job_type\\\": \\\"custom_only\\\", \\\"__current_case__\\\": 4, \\\"databases\\\": [{\\\"__index__\\\": 0, \\\"gene_db\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}]}\"}", 
-            "tool_version": "0.3.6", 
+            "tool_version": "0.3.7", 
             "type": "tool", 
             "uuid": "d5931cac-15ed-4009-8209-b594e706123a", 
             "workflow_outputs": []
@@ -519,7 +519,7 @@
             ], 
             "position": {
                 "left": 2296, 
-                "top": 334
+                "top": 307
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -568,7 +568,7 @@
             ], 
             "position": {
                 "left": 2296, 
-                "top": 447
+                "top": 420
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -617,7 +617,7 @@
             ], 
             "position": {
                 "left": 2529, 
-                "top": 334
+                "top": 307
             }, 
             "post_job_actions": {
                 "HideDatasetActionout_file1": {
@@ -660,7 +660,7 @@
             ], 
             "position": {
                 "left": 2757, 
-                "top": 334
+                "top": 307
             }, 
             "post_job_actions": {
                 "HideDatasetActionout_file1": {
@@ -711,7 +711,7 @@
             ], 
             "position": {
                 "left": 2985, 
-                "top": 334
+                "top": 307
             }, 
             "post_job_actions": {
                 "HideDatasetActionoutput": {
@@ -760,7 +760,7 @@
             ], 
             "position": {
                 "left": 3252, 
-                "top": 334
+                "top": 307
             }, 
             "post_job_actions": {
                 "HideDatasetActionout_file1": {
@@ -813,7 +813,7 @@
             ], 
             "position": {
                 "left": 3524, 
-                "top": 334
+                "top": 307
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -870,7 +870,7 @@
             ], 
             "position": {
                 "left": 3850, 
-                "top": 337
+                "top": 310
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -895,7 +895,7 @@
         }, 
         "18": {
             "annotation": "", 
-            "content_id": "toolshed.g2.bx.psu.edu/repos/nml/plasmid_profiler/plasmid_profiler/0.1.6", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/nml/plasmid_profiler/plasmid_profiler/0.1.6.1", 
             "id": 18, 
             "input_connections": {
                 "blastfile": {
@@ -910,19 +910,7 @@
             "inputs": [
                 {
                     "description": "runtime parameter for tool Plasmid Profiler", 
-                    "name": "sureness"
-                }, 
-                {
-                    "description": "runtime parameter for tool Plasmid Profiler", 
                     "name": "srst2file"
-                }, 
-                {
-                    "description": "runtime parameter for tool Plasmid Profiler", 
-                    "name": "length"
-                }, 
-                {
-                    "description": "runtime parameter for tool Plasmid Profiler", 
-                    "name": "coverage"
                 }, 
                 {
                     "description": "runtime parameter for tool Plasmid Profiler", 
@@ -947,19 +935,19 @@
             ], 
             "position": {
                 "left": 4154, 
-                "top": 334
+                "top": 307
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/nml/plasmid_profiler/plasmid_profiler/0.1.6", 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/nml/plasmid_profiler/plasmid_profiler/0.1.6.1", 
             "tool_shed_repository": {
-                "changeset_revision": "fc63bfd55903", 
+                "changeset_revision": "842d76e75fbe", 
                 "name": "plasmid_profiler", 
                 "owner": "nml", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"__page__\": 0, \"sureness\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"srst2file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"anonymize\": \"\\\"false\\\"\", \"length\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"combineincs\": \"\\\"false\\\"\", \"coverage\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"title\": \"\\\"${plot_title}\\\"\", \"blastfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
-            "tool_version": "0.1.6", 
+            "tool_state": "{\"__page__\": 0, \"sureness\": \"\\\"${sureness_cut_off}\\\"\", \"srst2file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"anonymize\": \"\\\"false\\\"\", \"length\": \"\\\"${plasmid_length_cut_off}\\\"\", \"combineincs\": \"\\\"false\\\"\", \"coverage\": \"\\\"${percent_coverage_cut_off}\\\"\", \"title\": \"\\\"${plot_title}\\\"\", \"blastfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "0.1.6.1", 
             "type": "tool", 
             "uuid": "00bd1515-2eb2-4906-8a65-7e8daa764abe", 
             "workflow_outputs": [
@@ -981,5 +969,5 @@
             ]
         }
     }, 
-    "uuid": "c1f59bca-0a2c-4afa-b618-941fef98ac40"
+    "uuid": "8e98a0f0-3d72-4d04-8c5b-dd3b2357ab45"
 }

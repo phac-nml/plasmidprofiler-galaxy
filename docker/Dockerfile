@@ -2,9 +2,9 @@
 
 
 
-FROM bgruening/galaxy-stable:16.07
+FROM bgruening/galaxy-stable:17.01
 
-MAINTAINER Jennifer Cabral, jen.cabral@gmail.com
+MAINTAINER Jennifer Cabral, jennifer.cabral@canada.ca
 
 ENV GALAXY_CONFIG_BRAND Plasmid Profiler v0.1.6
 
@@ -49,6 +49,8 @@ RUN install-tools-modified $GALAXY_ROOT/tools.yaml
 #Install workflow
 ADD ./galaxy/plasmidprofiler-workflow-0.1.6.ga /tmp/plasmidprofiler-workflow-0.1.6.ga
 RUN install-workflow "/tmp/plasmidprofiler-workflow-0.1.6.ga"
+
+RUN rm -rf /export/galaxy-central/
 
 #Remove temp files
 RUN rm /tmp/plasmidprofiler-workflow*.ga && \

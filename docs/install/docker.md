@@ -15,13 +15,13 @@ Running PlasmidProfiler
 Once Docker is installed, the latest version of PlasmidProfiler can be downloaded and run with:
 
 ```bash
-docker run -t -p 48888:80 jencabral/plasmidprofiler_0_1_6  
+docker run -t -p 48888:80 phacnml/plasmidprofiler_0_1_6  
 ```
 
 This will download and run a docker image with PlasmidProfiler and Galaxy.  By default this will **not persist** data run through PlasmidProfiler after Docker has been shutdown.  To permanently store this data, please run:
 
 ```bash
-docker run -t -p 48888:80 -v /home/user/galaxy_storage/:/export/ jencabral/plasmidprofiler_0_1_6 
+docker run -t -p 48888:80 -v /home/user/galaxy_storage/:/export/ phacnml/plasmidprofiler_0_1_6 
 ```
 
 Where `/home/user/galaxy_storage` as a location where files will be persisted between Docker runs.  For more information on how this works, see the [Galaxy Docker][] page.
@@ -45,7 +45,7 @@ This will show a list of all running docker containers, similar to:
 
 ```
 CONTAINER ID        IMAGE ...
-0d56c773a972        jencabral/plasmidprofiler-galaxy-0.1.3 ...
+0d56c773a972        phacnml/plasmidprofiler_0_1_6 ...
 ```
 
 This shows all running docker containers and a unique container id.  To shutdown the docker container, please use this container id and run the below command.

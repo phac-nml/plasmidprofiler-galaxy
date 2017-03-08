@@ -23,17 +23,8 @@ Once Galaxy is started, please login (**User > Login**) with the credentials `ad
 
 # Input Data
 
-PlasmidProfiler pipeline takes as input a set of sequence reads, and the included plasmid databases.  A very basic dataset can be found at [test-data.tar.gz][].
+PlasmidProfiler pipeline takes as input a set of sequence reads, and the included plasmid databases. 
 
-The data must first be uploaded to the PlasmidProfiler Galaxy instance before it can be used.  This can be accomplished by navigating to **Get Data > Upload File** in your web browser.
-
-![get-data-galaxy][]
-
-This should bring up a window for uploading files to Galaxy.
-
-![get-data-window-galaxy][]
-
-*Note: when selecting the **fastq** files, please make sure the data type is set to **fastqsanger**.  See [Preparing Sequence Reads](#preparing-sequence-reads).*
 
 ## Plasmid Databases
 
@@ -47,6 +38,16 @@ Click on the Plasmid Profiler library. Select the Databases folder and then pres
 
 
 ## Sequence Reads
+
+The sequence reads must first be uploaded to the PlasmidProfiler Galaxy instance before it can be used.  This can be accomplished by navigating to **Get Data > Upload File** in your web browser.
+
+![get-data-galaxy][]
+
+This should bring up a window for uploading files to Galaxy.
+
+![get-data-window-galaxy][]
+
+*Note: when selecting the **fastq** files, please make sure the data type is set to **fastqsanger**.  See [Preparing Sequence Reads](#preparing-sequence-reads).*
 
 Sequence reads should be uploaded to Galaxy in the **fastqsanger** format.  From the upload window, select the all the sequence reads under `reads/` and set the type to **fastqsanger** (Galaxy defaults to type **fastq**, which is not as useful).  This should look like the following.
 
@@ -108,7 +109,13 @@ All parameters for each tool can be overridden in Galaxy, but a few key paramete
 
 These parameters represent:
 
-1. **plot_title**:  This will be the title of the resulting plots.
+1. **sureness_cut_off**:  Sureness is the difference between normalized sequence coverage and divergence. It is a unique measure per dataset that informs the user as to the likelihood the identified plasmid is present in their sample. A value of 0.75 is recommended for a first pass with plasmids scoring above 0.95 to be considered as present in the WGS data. A value of 0 can be entered to disable this parameter.
+
+2. **plasmid_length_cut_off**:  Remove all plasmid sequences below this length from results (eg. 10000) A value of 0 can be entered to disable this parameter.
+
+3. **percent_coverage_cut_off**:  Plasmids with read coverage below this percentage will be excluded from the results (eg. 75) A value of 0 can be entered to disable this parameter.
+
+4. **plot_title**:  Custom plot title for heatmap.
 
 Once parameters are selected, the input files can be selected.
 
@@ -120,9 +127,7 @@ Galaxy should automatically detect the appropriate input files from the current 
 
 ## Run
 
-START FROM HERE NEXT TIME
-
-Once the parameters and input files have been selected, you can run the workflow by clicking the **Run workflow** at the bottom of the screen.
+Once the parameters and input files have been selected, you can run the workflow by clicking the **Run workflow** at the top of the screen.
 
 ![run-workflow][]
 
@@ -136,25 +141,19 @@ On completion each item in the Galaxy history should show up as green.  The very
 
 ![output-files][]
 
-In particular, the file **phylogeneticTree.newick** contains the ouput phylgeny.  This can be quickly visualied using the built-in viewer in Galaxy by selecting **Visuzlize in Phyloviz**.
+In particular, the file html output contains the interactive plot.
 
-![phylogeny-vis][]
-
-This loads up the phylogeny in a viewer similar to below.
-
-![example-phylogeny][]
+![htmloutput][]
 
 All intermediate files in the workflow can be inspected by first selecting the Galaxy history options.
 
 ![history-options][]
 
-Then selecting **Unhide hidden datasets**.
+Then selecting **Unhide Hidden Datasets**.
 
 ![unhide-hidden-datasets][]
 
 For more information about interacting with data from Galaxy, please see the [Learn Galaxy][] page.
-
-# Managing Errors
 
 # Output Manipulation in R
 
@@ -165,16 +164,13 @@ See the [Example Section][] for details on how to use the other package function
 [Docker Install]: https://docs.docker.com/installation/
 [Install]: ../install/
 [plasmidprofiler-galaxy-docker]: images/plasmidprofiler-galaxy-docker.png
-[test-data.tar.gz]: ../workflows/SNVPhyl/test-data.tar.gz
 [get-data-galaxy]: images/get-data-galaxy.png
 [get-data-window-galaxy]: images/get-data-window-galaxy.png
 [upload-sequence-reads]: images/upload-sequence-reads.png
 [upload-reference]: images/upload-reference.png
 [shared-data-libraries]: images/shared-data-libraries.png
 [import-to-history]: images/import-to-history.png
-[upload-invalid-positions]: images/upload-invalid-positions.png
 [upload-sequence-reads-history]: images/upload-sequence-reads-history.png
-[BED]: http://genome.ucsc.edu/FAQ/FAQformat#format1
 [operate-multiple-datasets]: images/operate-multiple-datasets.png
 [select-sequence-files]: images/select-sequence-files.png
 [build-list-pairs]: images/build-list-pairs.png
@@ -187,8 +183,7 @@ See the [Example Section][] for details on how to use the other package function
 [run-workflow]: images/run-workflow.png
 [workflow-running]: images/workflow-running.png
 [output-files]: images/output-files.png
-[phylogeny-vis]: images/phylogeny-vis.png
-[example-phylogeny]: images/example-phylogeny.png
+[htmloutput]: images/htmloutput.png
 [history-options]: images/history-options.png
 [unhide-hidden-datasets]: images/unhide-hidden-datasets.png
 [Learn Galaxy]: https://wiki.galaxyproject.org/Learn
@@ -196,10 +191,6 @@ See the [Example Section][] for details on how to use the other package function
 [tools-panel]: images/tools-panel.png
 [PlasmidProfiler Docker]: ../install/docker.md
 [Dataset Collections]: https://wiki.galaxyproject.org/Documents/Presentations/GCC2014?action=AttachFile&do=get&target=Chilton.pdf
-[galaxy-dataset-error]: images/galaxy-dataset-error.png
-[galaxy-dataset-error-details]: images/galaxy-dataset-error-details.png
-[snp-alignment-error]: images/snp-alignment-error.png
-[SNV/SNP Alignment]: output.md#snvsnp-alignment
 [Output]: output.md
 [workflows-list]: images/workflows-list.png
 [workflow-top-menu]: images/workflow-top-menu.png

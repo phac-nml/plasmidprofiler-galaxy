@@ -20,7 +20,7 @@ NUCLEOTIDESEQUENCE
 
 The sequence reads are the whole genome sequencing reads against which Plasmid Profiler will search for plasmids. These can be paired end or single end reads and should be in [FASTQ][] format.  Within Galaxy these should be imported with the **fastqsanger** data type and structured within a collection.
 
-![galaxy-paired-sequence-reads][]
+<img src="../images/galaxy-paired-sequence-reads.png" alt="galaxy-paired-sequence-reads" style="width: 250px" />
 
 Please see the [Preparing Sequence Reads][] documentation for details on how to structure the data.
 

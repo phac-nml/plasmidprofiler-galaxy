@@ -1,6 +1,6 @@
 # Usage
 
-PlasmidProfiler is implemented as a set of tools and a workflow within the [Galaxy][] platform.  PlasmidProfiler can be installed within an existing Galaxy infrastructure, or provided virtual machines and [Docker][] images can be downloaded with both Galaxy and PlasmidProfiler.  Please see the [Install][] guide for more details.
+PlasmidProfiler is implemented as a set of tools and a workflow within the [Galaxy][] platform.  PlasmidProfiler can be installed within an existing Galaxy infrastructure, or [Docker][] image can be downloaded with both Galaxy and PlasmidProfiler.  Please see the [Install][] guide for more details.
 
 ## Install
 
@@ -30,32 +30,32 @@ PlasmidProfiler pipeline takes as input a set of sequence reads, and the include
 
 The included plasmid databases need to be imported into your current history. This can be accomplished by navigating to **Shared Data > Data Libraries** in your web browser. 
 
-![shared-data-libraries][]
+<img src="../images/shared-data-libraries.png" alt="shared-data-libraries" style="width: 250px" />
 
 Click on the Plasmid Profiler library. Select the Databases folder and then press "Import to History"
 
-![import-to-history][]
+<img src="../images/import-to-history.png" alt="import-to-history" style="width: 150px" />
 
 
 ## Sequence Reads
 
 The sequence reads must first be uploaded to the PlasmidProfiler Galaxy instance before it can be used.  This can be accomplished by navigating to **Get Data > Upload File** in your web browser.
 
-![get-data-galaxy][]
+<img src="../images/get-data-galaxy.png" alt="get-data-galaxy" style="width: 250px" />
 
 This should bring up a window for uploading files to Galaxy.
 
-![get-data-window-galaxy][]
+<img src="../images/get-data-window-galaxy.png" alt="get-data-window-galaxy" style="width: 700px" />
 
 *Note: when selecting the **fastq** files, please make sure the data type is set to **fastqsanger**.  See [Preparing Sequence Reads](#preparing-sequence-reads).*
 
 Sequence reads should be uploaded to Galaxy in the **fastqsanger** format.  From the upload window, select the all the sequence reads under `reads/` and set the type to **fastqsanger** (Galaxy defaults to type **fastq**, which is not as useful).  This should look like the following.
 
-![upload-sequence-reads][]
+<img src="../images/upload-sequence-reads.png" alt="upload-sequence-reads" style="width: 700px" />
 
 When all the reads are uploaded, you should see the following in your Galaxy history.
 
-![upload-sequence-reads-history][]
+<img src="../images/upload-sequence-reads-history.png" alt="upload-sequence-reads-history" style="width: 250px" />
 
 ## Preparing Sequence Reads
 
@@ -65,47 +65,47 @@ To construct a paired dataset collection of reads in Galaxy, please do the follo
 
 1.  Select the **Operate on multiple datasets** button in the Galaxy histories panel.
 
-    ![operate-multiple-datasets][]
+	<img src="../images/operate-multiple-datasets.png" alt="operate-multiple-datasets" style="width: 250px" />
 
 2.  Select all the **fastq** sequence files.
 
-    ![select-sequence-files][]
+	<img src="../images/select-sequence-files.png" alt="select-sequence-files" style="width: 250px" />
 
 3.  Select **For all selected > Build List of Dataset Pairs**
-
-    ![build-list-pairs][]
+	
+	<img src="../images/build-list-pairs.png" alt="build-list-pairs" style="width: 250px" />
 
 4.  In the screen that follows, all the sequence reads should be automatically paired.
 
-    ![paired-data-screen1][]
+	<img src="../images/paired-data-screen1.png" alt="paired-data-screen1" style="width: 650px" />
 
     Give the collection of files a name and select **Create list**.
 
-    ![paired-data-screen2][]
+    <img src="../images/paired-data-screen2.png" alt="paired-data-screen2" style="width: 400px" />
 
     The set of paired files should appear in your Galaxy history.
 
-    ![paired-data-list][]
+    <img src="../images/paired-data-list.png" alt="paired-data-list" style="width: 250px" />
 
 # Running the Workflow
 
 Once all the data has been prepared, the workflow can be run.  The installed workflows can be found in the Galaxy **Tools** panel at the left of the screen.
 
-![tools-panel][]
+<img src="../images/tools-panel.png" alt="tools-panel" style="width: 250px" />
 
 Near the bottom.
 
-![installed-workflows][] 
+<img src="../images/installed-workflows.png" alt="installed-workflows" style="width: 250px" />
 
-Or, alternatively, by clicking on the **Workflows** menu at the top ![workflow-top-menu][].
+Or, alternatively, by clicking on the **Workflow** menu at the top <img src="../images/workflow-top-menu.png" alt="workflow-top-menu" style="width: 200px" />
 
-![workflows-list][]
+<img src="../images/workflows-list.png" alt="workflows-list" style="width: 250px" />
 
 ## Parameters
 
 All parameters for each tool can be overridden in Galaxy, but a few key parameters will appear at the top of the parameters page.
 
-![parameters-list][]
+<img src="../images/parameters-list.png" alt="parameters-list" style="width: 400px" />
 
 These parameters represent:
 
@@ -123,35 +123,35 @@ Once parameters are selected, the input files can be selected.
 
 Galaxy should automatically detect the appropriate input files from the current history for the Paired End Fastqs and the Plasmid Database, however you will need to select the correct file for the Plasmidfinder + APC database. Please verify that it has picked up the correct files.
 
-![input-files-selection][]
+<img src="../images/input-files-selection.png" alt="input-files-selection" style="width: 400px" />
 
 ## Run
 
 Once the parameters and input files have been selected, you can run the workflow by clicking the **Run workflow** at the top of the screen.
 
-![run-workflow][]
+<img src="../images/run-workflow.png" alt="run-workflow" style="width: 150px" />
 
 This will start the workflow.  You may have to refresh your page to see each step being executed.  This should look like:
 
-![workflow-running][]
+<img src="../images/workflow-running.png" alt="workflow-running" style="width: 250px" />
 
 # Results
 
 On completion each item in the Galaxy history should show up as green.  The very top should contain the main output files.
 
-![output-files][]
+<img src="../images/output-files.png" alt="output-files" style="width: 250px" />
 
 In particular, the file html output contains the interactive plot.
 
-![htmloutput][]
+<img src="../images/htmloutput.png" alt="htmloutput" style="width: 250px" />
 
 All intermediate files in the workflow can be inspected by first selecting the Galaxy history options.
 
-![history-options][]
+<img src="../images/history-options.png" alt="history-options" style="width: 250px" />
 
 Then selecting **Unhide Hidden Datasets**.
 
-![unhide-hidden-datasets][]
+<img src="../images/unhide-hidden-datasets.png" alt="unhide-hidden-datasets" style="width: 250px" />
 
 For more information about interacting with data from Galaxy, please see the [Learn Galaxy][] page.
 

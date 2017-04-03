@@ -13,9 +13,9 @@ The stages of the Plasmid Profiler pipeline are as follows:
 1. Preparing input files including:  
     1. A set of sequence reads.  
     2. A reference plasmid database.  
-    3. A database of plasmid replicon sequences along with genes of interest.  
-2. [KAT][] to create an individualized plasmid database per sample.
-3. [SRST2][] identifies putative plasmid hits from the individual databases.
+    3. Plasmid Finder replicon database along with genes of interest.  
+2. [KAT][] identifies database plasmids represented in the reads and creates an individualized plasmid database per isolate.
+3. [SRST2][] identifies plasmid hits from the individual per isolate databases.
 4. [BLAST][] identifies the incompatibility groups and genes of interest on hit plasmids.
 5. Parse and score the identified plasmids using the [PlasmidProfiler][] R package.
 6. Produce visualizations and export tables using the [PlasmidProfiler][] R package.
@@ -29,7 +29,7 @@ More information on the operation and installation of the pipeline can be found 
 # Contact
 
 Comments, questions, or issues can be sent to:  
-Adrian Zetner <adrian.zetner@phac-aspc.gc.ca>   
+Adrian Zetner <adrian.zetner@canada.ca>   
 Jennifer Cabral <jennifer.cabral@canada.ca>
 
 <!-- Links in order of sight in the page -->
@@ -42,14 +42,14 @@ Jennifer Cabral <jennifer.cabral@canada.ca>
 
 [Galaxy]: http://galaxyproject.org/
 [Installation]: install/index.md
-[Overview]: user/index.md
+[Overview]: galaxy/index.md
 
 
 
 [PhyML]: http://www.atgc-montpellier.fr/phyml/
-[Usage]: user/usage.md
+[Usage]: galaxy/usage.md
 [PP-flowchart]: images/PP-flowchart.png
 [plasmid-profiler-overview-galaxy]: images/screenshot136.png
 
-[output]: user/output.md
-[Input]: user/input.md
+[output]: galaxy/output.md
+[Input]: galaxy/input.md

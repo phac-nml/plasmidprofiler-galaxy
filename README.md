@@ -29,9 +29,15 @@
 ## Description ##
 -----------------
 
-Heatmap display of plasmid content in WGS data. This program parses plasmids identified through SRST2 and BLAST, scores them based on a combined measure of maximized coverage and minimized sequence divergence, and produces visualizations along with tabular results. Best used on results from the workflow "P2 - Plasmid Profiler: SRST2 and BLAST"
+Plasmid Profiler, a pipeline to perform comparative plasmid content analysis without the need for de novo assembly. The pipeline is designed to rapidly identify plasmid sequences by mapping reads to a plasmid reference sequence database. Predicted plasmid sequences are then annotated with their incompatibility group, if known. The pipeline allows users to query plasmids for genes or regions of interest and visualize results as an interactive heat map.  
 
-Detailed documentation can be found at http://plasmid-profiler.readthedocs.io/. This repository contains the customized [Galaxy][] tools for this pipeline as well as the source for the documentation.
+Plasmid Profiler is freely available software released under the Apache 2.0 open source software license.  
+
+Article pre-print available at: http://biorxiv.org/content/early/2017/03/28/121350
+
+Detailed documentation can be found at http://plasmid-profiler.readthedocs.io/. 
+
+This repository contains the customized [Galaxy][] tools for this pipeline as well as the source for the documentation.
 
 ## Documentation ##
 -------------------

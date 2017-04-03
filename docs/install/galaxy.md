@@ -29,6 +29,6 @@ Installation should now be complete.  Please see the [Usage][] documentation for
 [Galaxy]: https://galaxyproject.org/
 [suite-plasmidprofiler-repository]: images/suite-plasmidprofiler-repository.png
 [plasmidprofiler-tool-dependencies]: images/plasmidprofiler-tool-dependencies.png
-[Usage]: ../user/usage.md
+[Usage]: ../galaxy/usage.md
 [Plasmid Profiler 0.1.6]: ../workflows/PlasmidProfiler/0.1.6/plasmidprofiler-workflow-0.1.6.ga
 [versions]: versions.md

@@ -59,5 +59,5 @@ The PlasmidProfiler/Galaxy Docker image is based on the [Galaxy Docker][] image.
 [Docker]: https://www.docker.com/
 [Docker installation]: https://docs.docker.com/installation/
 [plasmidprofiler-galaxy-docker]: images/plasmidprofiler-galaxy-docker.png
-[User Guide]: ../user/usage.md
+[User Guide]: ../galaxy/usage.md
 [Galaxy Docker]: https://github.com/bgruening/docker-galaxy-stable

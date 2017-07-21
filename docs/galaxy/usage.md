@@ -1,6 +1,8 @@
 # Usage
 
-PlasmidProfiler is implemented as a set of tools and a workflow within the [Galaxy][] platform.  PlasmidProfiler can be installed within an existing Galaxy infrastructure, or [Docker][] image can be downloaded with both Galaxy and PlasmidProfiler.  Please see the [Install][] guide for more details.
+PlasmidProfiler is implemented as a set of tools and a workflow within the [Galaxy][] platform.  PlasmidProfiler can be installed within an existing Galaxy infrastructure, or [Docker][] image can be downloaded with both Galaxy and PlasmidProfiler.  
+
+Please see the [Install][] guide for more details.
 
 ## Install
 
@@ -8,7 +10,7 @@ The easiest way to get started is to use [Docker][].  To both install Docker and
 
 ```bash
 curl -sSL https://get.docker.com/ | sh # Installs Docker
-sudo docker run -t -p 48888:80 phacnml/plasmidprofiler_0_1_6 # Downloads and runs PlasmidProfiler and Galaxy 
+sudo docker run -t -p 48888:80 phacnml/plasmidprofiler_0_1_6 # Downloads and runs PlasmidProfiler and Galaxy
 ```
 
 This will install Docker, download the PlasmidProfiler Galaxy docker image, and run this image in a Docker container.  This will take a while to fully download and start up.  You may have to start the `docker` service after installation for Docker to work.  This should be a command like `sudo service docker start`, or `sudo systemctl start docker` depending on your system.  See the [Docker Install][] guide for more details.
@@ -23,12 +25,12 @@ Once Galaxy is started, please login (**User > Login**) with the credentials `ad
 
 # Input Data
 
-PlasmidProfiler pipeline takes as input a set of sequence reads, and the included plasmid databases. 
+PlasmidProfiler pipeline takes as input a set of sequence reads, and the included plasmid databases.
 
 
 ## Plasmid Databases
 
-The included plasmid databases need to be imported into your current history. This can be accomplished by navigating to **Shared Data > Data Libraries** in your web browser. 
+The included plasmid databases need to be imported into your current history. This can be accomplished by navigating to **Shared Data > Data Libraries** in your web browser.
 
 <img src="../images/shared-data-libraries.png" alt="shared-data-libraries" style="width: 250px" />
 
@@ -72,7 +74,7 @@ To construct a paired dataset collection of reads in Galaxy, please do the follo
 	<img src="../images/select-sequence-files.png" alt="select-sequence-files" style="width: 250px" />
 
 3.  Select **For all selected > Build List of Dataset Pairs**
-	
+
 	<img src="../images/build-list-pairs.png" alt="build-list-pairs" style="width: 250px" />
 
 4.  In the screen that follows, all the sequence reads should be automatically paired.
@@ -157,7 +159,7 @@ For more information about interacting with data from Galaxy, please see the [Le
 
 # Output Manipulation in R
 
-See the [Example Section][] for details on how to use the other package functions in an R environment. 
+See the [Example Section][] for details on how to use the other package functions in an R environment.
 
 [Galaxy]: http://galaxyproject.org/
 [Docker]: https://www.docker.com/

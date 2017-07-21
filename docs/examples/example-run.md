@@ -1,6 +1,10 @@
 # Example Run
 
-## Running the Pipeline in Galaxy
+## Example Data and Running the Pipeline in Galaxy
+
+Example read sets can be found here: https://share.corefacility.ca/index.php/s/BuX2EpLYbJbzmxB
+
+These reads can then be uploaded into a galaxy instance and assembled into a collection.
 
 See [Running the workflow][] for how to run the pipeline in Galaxy.
 
@@ -29,7 +33,7 @@ For example...
 	82: Combine on data 75, data 70, and others
 
 In this next step we have renamed the files to _srst2results.tsv_ and _blastresults.tsv_ for simplicity and they reside in the R Project folder.  
-	
+
 First attach the Plasmidprofiler package and then run it's main() function on the results:  
 
 	library(Plasmidprofiler)  
@@ -93,13 +97,13 @@ Now the heatmap looks more like this:
 
 ![static heat map filtered][]
 
-The corresponding [interactive heat map][] and [table of results][] will reflect these changes as well. 
+The corresponding [interactive heat map][] and [table of results][] will reflect these changes as well.
 
 ## What do the results tell us?
 
-The WGS reads from each sample have been analyzed and compared to the plasmid database from which the displayed plasmids were matched. The degree to which this match was made is displayed in the transparency of the individual plasmid cells of the heatmap according to the range of sureness chosen. Nearly transparent cells represent lower potential matches at the lowest end of the range and opaque cells near certainty that plasmid is represented in the sequencing data. 
+The WGS reads from each sample have been analyzed and compared to the plasmid database from which the displayed plasmids were matched. The degree to which this match was made is displayed in the transparency of the individual plasmid cells of the heatmap according to the range of sureness chosen. Nearly transparent cells represent lower potential matches at the lowest end of the range and opaque cells near certainty that plasmid is represented in the sequencing data.
 
-Each identified plasmid has been coloured and arranged according to its incompatibility group. The plasmids in which our genes of interest have been found are coloured according to the best gene hit found. 
+Each identified plasmid has been coloured and arranged according to its incompatibility group. The plasmids in which our genes of interest have been found are coloured according to the best gene hit found.
 
 
 ### Examining the samples in order.
@@ -110,30 +114,30 @@ _15-1091_
  * Plasmid CP12903 has been identified to carry the OXA181 gene of interest at 100% identity  
 
 _15-1078_  
- 
+
  * Two different incompatibility groups identified, 3 total hits
  * Examining the [example table of results] we can compare the two A/C2 hits and see that of the two, CP012902.1 is the better hit with 100% coverage and a lower sequence divergence.  
- * Because more than one plasmid of the same incompatibility group cannot persist in a cell at time we can conclude that the higher sureness hit is far more likely to be present than the other. 
- 
+ * Because more than one plasmid of the same incompatibility group cannot persist in a cell at time we can conclude that the higher sureness hit is far more likely to be present than the other.
+
  _12-4374_  
- 
+
  * Three incompatibility groups identified: 3 plasmids likely to be present
  * The plasmids from groups FII and I1 are easy to distinguish but what of the X1s? Each of them has a very high sureness score close to 1 (as seen in the [example table of results]) with near total coverage and very low sequence divergence. Plasmid CP012926.1 has the highest total sureness value at 0.999 and is therefore the most similar to the actual plasmid present.
  * Again, only a single plasmid per incompatibility group is possible so although there are multiple high value hits, the best is more likely to be the present plasmid.    
- 
+
 _N13-01290_  
- 
- * A similar situation as above. Multiple plasmids from the incompatibility groups Col, HI2, HI2A, and I1 were found. 
+
+ * A similar situation as above. Multiple plasmids from the incompatibility groups Col, HI2, HI2A, and I1 were found.
  * A call must be made based on the sureness values which plasmid to consider present from each group. Of the two Col plasmids NC_022376 has higher sureness which translates to higher coverage and lower divergence and is the appropriate choice.  
  * The best hit plasmid from each of the groups are considered present.
 
 _A4Y217 and A4Y413_  
- 
+
  * No hits to plasmids with known incompatibility groups
  * Each with a number of plasmids lacking known replicons in similar pattern
- * In this case it is necessary to examine the best hits by researching their accession numbers to make a determination on which will be considered present. 
+ * In this case it is necessary to examine the best hits by researching their accession numbers to make a determination on which will be considered present.
 
- 
+
 ## Using the other package functions
 
 There are a number of other package functions available to the user for data manipulation in R. To access them first attach the Plasmidprofiler package and import the output files of the pipeline into your R environment:
@@ -150,7 +154,7 @@ Next perform the initial parsing and combine the data into the combined report:
 
 This results in a table with the following columns:
 
-* Sample 
+* Sample
 * Plasmid
 * Inc_group
 * Coverage
@@ -213,7 +217,7 @@ Use the save_files() function to save the various outputs one at a time:
 	save_files(cr.ordered, plot.png = 1, report.csv = 1, webpage = NA)
 
 
-[Running the workflow]: ../user/usage/#running-the-workflow
+[Running the workflow]: ../galaxy/usage/#running-the-workflow
 [static heat map]: ../galaxy/output/#static-heat-map
 [interactive heat map]: ../galaxy/output/#interactive-heat-map
 [table of results]: ../galaxy/output/#comma-separated-value-table-of-results
